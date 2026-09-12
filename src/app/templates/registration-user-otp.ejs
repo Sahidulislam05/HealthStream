@@ -1,0 +1,802 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Email Verification</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f3f6ff;
+      color: #1f2937;
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+    }
+
+    table {
+      border-spacing: 0;
+    }
+
+    .email-wrapper {
+      width: 100%;
+      padding: 45px 15px;
+
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(99, 102, 241, 0.18),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(236, 72, 153, 0.18),
+          transparent 35%
+        ),
+        #f3f6ff;
+    }
+
+    .email-container {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border-radius: 24px;
+
+      box-shadow:
+        0 25px 70px rgba(45, 55, 72, 0.12),
+        0 8px 25px rgba(99, 102, 241, 0.08);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      padding: 45px 40px 55px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(255, 255, 255, 0.25),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(255, 255, 255, 0.15),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #4f46e5 0%,
+          #6366f1 38%,
+          #ec4899 100%
+        );
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      left: -75px;
+      bottom: -75px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 190px;
+      height: 190px;
+
+      right: -95px;
+      top: -95px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    /* =========================
+       EMAIL ICON
+    ========================== */
+
+    .icon-wrapper {
+      position: relative;
+      z-index: 2;
+
+      width: 82px;
+      height: 82px;
+
+      margin: 0 auto 22px;
+
+      padding: 7px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.18);
+
+      border: 1px solid rgba(255, 255, 255, 0.30);
+
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .email-icon {
+      width: 68px;
+      height: 68px;
+
+      border-radius: 50%;
+
+      background: #ffffff;
+
+      color: #4f46e5;
+
+      font-size: 30px;
+      line-height: 68px;
+
+      text-align: center;
+    }
+
+    /* =========================
+       HERO TEXT
+    ========================== */
+
+    .hero-title {
+      position: relative;
+      z-index: 2;
+
+      margin: 0;
+
+      color: #ffffff;
+
+      font-size: 29px;
+      line-height: 1.3;
+
+      font-weight: 800;
+
+      letter-spacing: -0.6px;
+    }
+
+    .hero-subtitle {
+      position: relative;
+      z-index: 2;
+
+      max-width: 440px;
+
+      margin: 14px auto 0;
+
+      color: rgba(255, 255, 255, 0.88);
+
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       CONTENT
+    ========================== */
+
+    .content {
+      padding: 40px;
+    }
+
+    .greeting {
+      margin: 0 0 10px;
+
+      color: #111827;
+
+      font-size: 17px;
+
+      font-weight: 700;
+    }
+
+    .description {
+      margin: 0;
+
+      color: #64748b;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+    }
+
+    .email-address {
+      display: inline-block;
+
+      margin-top: 7px;
+
+      padding: 6px 10px;
+
+      border-radius: 7px;
+
+      background: #f1f5f9;
+
+      color: #4f46e5;
+
+      font-size: 12px;
+
+      font-weight: 600;
+    }
+
+    /* =========================
+       OTP SECTION
+    ========================== */
+
+    .otp-section {
+      position: relative;
+
+      margin: 32px 0;
+
+      padding: 30px 20px;
+
+      text-align: center;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(79, 70, 229, 0.07),
+          rgba(236, 72, 153, 0.08)
+        );
+
+      border: 1px solid rgba(99, 102, 241, 0.13);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .otp-label {
+      margin: 0 0 16px;
+
+      color: #64748b;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+    }
+
+    .otp {
+      display: inline-block;
+
+      padding: 16px 27px;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #4f46e5,
+          #7c3aed 50%,
+          #ec4899
+        );
+
+      color: #ffffff;
+
+      font-size: 32px;
+
+      font-weight: 800;
+
+      letter-spacing: 9px;
+
+      line-height: 1;
+
+      box-shadow:
+        0 12px 28px rgba(99, 102, 241, 0.25);
+    }
+
+    .expiration {
+      margin: 17px 0 0;
+
+      color: #64748b;
+
+      font-size: 12px;
+
+      line-height: 1.6;
+    }
+
+    .expiration strong {
+      color: #4f46e5;
+    }
+
+    /* =========================
+       VERIFICATION STEPS
+    ========================== */
+
+    .steps-card {
+      margin-top: 28px;
+
+      padding: 23px;
+
+      border-radius: 17px;
+
+      background: #f8fafc;
+
+      border: 1px solid #e2e8f0;
+    }
+
+    .steps-title {
+      margin: 0 0 16px;
+
+      color: #1e293b;
+
+      font-size: 14px;
+
+      font-weight: 700;
+    }
+
+    .step {
+      display: table;
+
+      width: 100%;
+
+      margin-bottom: 12px;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-number {
+      display: table-cell;
+
+      width: 28px;
+
+      vertical-align: top;
+    }
+
+    .step-number span {
+      display: inline-block;
+
+      width: 23px;
+      height: 23px;
+
+      border-radius: 50%;
+
+      background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #ec4899
+      );
+
+      color: #ffffff;
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      line-height: 23px;
+
+      text-align: center;
+    }
+
+    .step-text {
+      display: table-cell;
+
+      vertical-align: top;
+
+      color: #64748b;
+
+      font-size: 12px;
+
+      line-height: 1.7;
+    }
+
+    /* =========================
+       SECURITY NOTICE
+    ========================== */
+
+    .security-box {
+      display: table;
+
+      width: 100%;
+
+      margin-top: 25px;
+
+      padding: 18px;
+
+      border-radius: 14px;
+
+      background: #fff7ed;
+
+      border: 1px solid #fed7aa;
+    }
+
+    .security-icon {
+      display: table-cell;
+
+      width: 35px;
+
+      vertical-align: top;
+
+      font-size: 18px;
+    }
+
+    .security-text {
+      display: table-cell;
+
+      vertical-align: top;
+
+      color: #9a3412;
+
+      font-size: 12px;
+
+      line-height: 1.7;
+    }
+
+    /* =========================
+       DIVIDER
+    ========================== */
+
+    .divider {
+      height: 1px;
+
+      margin: 32px 0 24px;
+
+      background: #e5e7eb;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer {
+      padding: 0 40px 35px;
+
+      text-align: center;
+    }
+
+    .footer-brand {
+      margin: 0 0 8px;
+
+      color: #4f46e5;
+
+      font-size: 14px;
+
+      font-weight: 800;
+    }
+
+    .footer-text {
+      margin: 0;
+
+      color: #94a3b8;
+
+      font-size: 11px;
+
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+
+      font-size: 11px;
+    }
+
+    .footer-links a {
+      color: #6366f1;
+
+      text-decoration: none;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media only screen and (max-width: 600px) {
+
+      .email-wrapper {
+        padding: 20px 10px;
+      }
+
+      .hero {
+        padding: 35px 25px 45px;
+      }
+
+      .content {
+        padding: 30px 22px;
+      }
+
+      .footer {
+        padding: 0 22px 30px;
+      }
+
+      .hero-title {
+        font-size: 25px;
+      }
+
+      .hero-subtitle {
+        font-size: 13px;
+      }
+
+      .icon-wrapper {
+        width: 74px;
+        height: 74px;
+      }
+
+      .email-icon {
+        width: 60px;
+        height: 60px;
+
+        font-size: 26px;
+
+        line-height: 60px;
+      }
+
+      .otp {
+        font-size: 27px;
+
+        letter-spacing: 7px;
+
+        padding: 14px 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="email-wrapper">
+
+    <table
+      role="presentation"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+    >
+      <tr>
+        <td align="center">
+
+          <table
+            role="presentation"
+            class="email-container"
+            width="620"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+          >
+
+            <!-- =========================
+                 HERO
+            ========================== -->
+
+            <tr>
+              <td class="hero">
+
+                <div class="icon-wrapper">
+
+                  <div class="email-icon">
+                    ✉
+                  </div>
+
+                </div>
+
+                <h1 class="hero-title">
+                  Verify Your Email
+                </h1>
+
+                <p class="hero-subtitle">
+                  One quick step to secure your account
+                  and complete your registration.
+                </p>
+
+              </td>
+            </tr>
+
+
+            <!-- =========================
+                 CONTENT
+            ========================== -->
+
+            <tr>
+              <td class="content">
+
+                <p class="greeting">
+                  Hello <%= name %> 👋
+                </p>
+
+                <p class="description">
+                  We received a request to verify the email
+                  address associated with your
+                  <strong>HealthStream System</strong>
+                  account.
+                </p>
+
+                <span class="email-address">
+                  <%= email %>
+                </span>
+
+
+                <!-- =========================
+                     OTP
+                ========================== -->
+
+                <div class="otp-section">
+
+                  <p class="otp-label">
+                    Your Verification Code
+                  </p>
+
+                  <div class="otp">
+                    <%= otp %>
+                  </div>
+
+                  <p class="expiration">
+                    This verification code will expire in
+                    <strong>
+                      <%= expirationMinutes %> minutes
+                    </strong>.
+                  </p>
+
+                </div>
+
+
+                <!-- =========================
+                     STEPS
+                ========================== -->
+
+                <div class="steps-card">
+
+                  <p class="steps-title">
+                    How to verify your email
+                  </p>
+
+                  <div class="step">
+
+                    <div class="step-number">
+                      <span>1</span>
+                    </div>
+
+                    <div class="step-text">
+                      Return to the HealthStream System
+                      verification page.
+                    </div>
+
+                  </div>
+
+                  <div class="step">
+
+                    <div class="step-number">
+                      <span>2</span>
+                    </div>
+
+                    <div class="step-text">
+                      Enter the verification code shown
+                      in this email.
+                    </div>
+
+                  </div>
+
+                  <div class="step">
+
+                    <div class="step-number">
+                      <span>3</span>
+                    </div>
+
+                    <div class="step-text">
+                      Your email will be verified and your
+                      account setup can continue.
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- =========================
+                     SECURITY NOTICE
+                ========================== -->
+
+                <div class="security-box">
+
+                  <div class="security-icon">
+                    🛡️
+                  </div>
+
+                  <div class="security-text">
+                    <strong>Keep your code private.</strong>
+                    Never share this verification code with
+                    anyone. HealthStream System will never
+                    ask you for your OTP by phone, email,
+                    or message.
+                  </div>
+
+                </div>
+
+
+                <div class="divider"></div>
+
+                <p class="description">
+                  If you did not request an email verification,
+                  you can safely ignore this message.
+                  No changes will be made to your account.
+                </p>
+
+              </td>
+            </tr>
+
+
+            <!-- =========================
+                 FOOTER
+            ========================== -->
+
+            <tr>
+              <td class="footer">
+
+                <p class="footer-brand">
+                  HealthStream System
+                </p>
+
+                <p class="footer-text">
+                  Secure healthcare management, built for you.
+                </p>
+
+                <p class="footer-text">
+                  &copy; <%= new Date().getFullYear() %>
+                  HealthStream System.
+                  All rights reserved.
+                </p>
+
+                <div class="footer-links">
+
+                  <a href="#">
+                    Privacy Policy
+                  </a>
+
+                  &nbsp;&nbsp;•&nbsp;&nbsp;
+
+                  <a href="#">
+                    Support
+                  </a>
+
+                </div>
+
+              </td>
+            </tr>
+
+          </table>
+
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</body>
+</html>

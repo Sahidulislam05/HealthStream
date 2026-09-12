@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Application Update</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f3f6ff;
+      color: #1f2937;
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+    }
+
+    table {
+      border-spacing: 0;
+    }
+
+    .email-wrapper {
+      width: 100%;
+      padding: 45px 15px;
+
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(99, 102, 241, 0.16),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(236, 72, 153, 0.15),
+          transparent 35%
+        ),
+        #f3f6ff;
+    }
+
+    .email-container {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border-radius: 24px;
+
+      box-shadow:
+        0 25px 70px rgba(45, 55, 72, 0.12),
+        0 8px 25px rgba(99, 102, 241, 0.08);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      padding: 45px 40px 52px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(255, 255, 255, 0.25),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(255, 255, 255, 0.14),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #4f46e5 0%,
+          #6366f1 42%,
+          #ec4899 100%
+        );
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 160px;
+      height: 160px;
+
+      left: -80px;
+      bottom: -80px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 200px;
+      height: 200px;
+
+      right: -100px;
+      top: -100px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    /* =========================
+       APPLICATION ICON
+    ========================== */
+
+    .icon-wrapper {
+      position: relative;
+      z-index: 2;
+
+      width: 82px;
+      height: 82px;
+
+      margin: 0 auto 22px;
+
+      padding: 7px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.18);
+
+      border: 1px solid rgba(255, 255, 255, 0.30);
+
+      box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .application-icon {
+      width: 68px;
+      height: 68px;
+
+      border-radius: 50%;
+
+      background: #ffffff;
+
+      color: #6366f1;
+
+      font-size: 30px;
+
+      line-height: 68px;
+
+      text-align: center;
+    }
+
+    /* =========================
+       HERO TEXT
+    ========================== */
+
+    .hero-title {
+      position: relative;
+      z-index: 2;
+
+      margin: 0;
+
+      color: #ffffff;
+
+      font-size: 29px;
+
+      line-height: 1.3;
+
+      font-weight: 800;
+
+      letter-spacing: -0.6px;
+    }
+
+    .hero-subtitle {
+      position: relative;
+      z-index: 2;
+
+      max-width: 440px;
+
+      margin: 14px auto 0;
+
+      color: rgba(255, 255, 255, 0.88);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+    }
+
+    /* =========================
+       CONTENT
+    ========================== */
+
+    .content {
+      padding: 40px;
+    }
+
+    .greeting {
+      margin: 0 0 10px;
+
+      color: #111827;
+
+      font-size: 18px;
+
+      font-weight: 700;
+    }
+
+    .description {
+      margin: 0;
+
+      color: #64748b;
+
+      font-size: 14px;
+
+      line-height: 1.85;
+    }
+
+    /* =========================
+       APPLICATION STATUS
+    ========================== */
+
+    .status-card {
+      position: relative;
+
+      margin: 30px 0;
+
+      padding: 25px;
+
+      overflow: hidden;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff7f7,
+          #fff1f7
+        );
+
+      border: 1px solid #fbcfe8;
+    }
+
+    .status-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 110px;
+      height: 110px;
+
+      right: -55px;
+      top: -55px;
+
+      border-radius: 50%;
+
+      background: rgba(236, 72, 153, 0.07);
+    }
+
+    .status-header {
+      position: relative;
+      z-index: 2;
+
+      display: table;
+
+      width: 100%;
+    }
+
+    .status-icon {
+      display: table-cell;
+
+      width: 45px;
+
+      vertical-align: top;
+    }
+
+    .status-icon span {
+      display: inline-block;
+
+      width: 36px;
+      height: 36px;
+
+      border-radius: 11px;
+
+      background: #ffe4e6;
+
+      color: #be123c;
+
+      font-size: 17px;
+
+      line-height: 36px;
+
+      text-align: center;
+    }
+
+    .status-content {
+      display: table-cell;
+
+      vertical-align: top;
+    }
+
+    .status-title {
+      margin: 0 0 5px;
+
+      color: #9f1239;
+
+      font-size: 15px;
+
+      font-weight: 800;
+    }
+
+    .status-text {
+      margin: 0;
+
+      color: #64748b;
+
+      font-size: 12px;
+
+      line-height: 1.7;
+    }
+
+    /* =========================
+       REASON
+    ========================== */
+
+    .reason-card {
+      margin-top: 22px;
+
+      padding: 20px;
+
+      border-radius: 15px;
+
+      background: #ffffff;
+
+      border: 1px solid #fecdd3;
+
+      box-shadow:
+        0 5px 18px rgba(190, 24, 93, 0.05);
+    }
+
+    .reason-label {
+      margin: 0 0 9px;
+
+      color: #9f1239;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1.3px;
+    }
+
+    .reason-text {
+      margin: 0;
+
+      color: #475569;
+
+      font-size: 13px;
+
+      line-height: 1.8;
+    }
+
+    /* =========================
+       NEXT STEPS
+    ========================== */
+
+    .next-section {
+      margin-top: 30px;
+
+      padding: 24px;
+
+      border-radius: 17px;
+
+      background: #f8fafc;
+
+      border: 1px solid #e2e8f0;
+    }
+
+    .next-title {
+      margin: 0 0 13px;
+
+      color: #1e293b;
+
+      font-size: 15px;
+
+      font-weight: 700;
+    }
+
+    .next-text {
+      margin: 0;
+
+      color: #64748b;
+
+      font-size: 12px;
+
+      line-height: 1.8;
+    }
+
+    /* =========================
+       SUPPORT CTA
+    ========================== */
+
+    .support-section {
+      margin-top: 28px;
+
+      padding: 26px 20px;
+
+      text-align: center;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f5f3ff,
+          #fdf2f8
+        );
+
+      border: 1px solid rgba(99, 102, 241, 0.10);
+    }
+
+    .support-title {
+      margin: 0 0 7px;
+
+      color: #312e81;
+
+      font-size: 15px;
+
+      font-weight: 800;
+    }
+
+    .support-text {
+      max-width: 390px;
+
+      margin: 0 auto 17px;
+
+      color: #64748b;
+
+      font-size: 12px;
+
+      line-height: 1.7;
+    }
+
+    .support-button {
+      display: inline-block;
+
+      padding: 12px 25px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #4f46e5,
+          #ec4899
+        );
+
+      color: #ffffff !important;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      text-decoration: none;
+
+      box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.20);
+    }
+
+    /* =========================
+       DIVIDER
+    ========================== */
+
+    .divider {
+      height: 1px;
+
+      margin: 32px 0 24px;
+
+      background: #e5e7eb;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer {
+      padding: 0 40px 35px;
+
+      text-align: center;
+    }
+
+    .footer-brand {
+      margin: 0 0 8px;
+
+      color: #4f46e5;
+
+      font-size: 14px;
+
+      font-weight: 800;
+    }
+
+    .footer-text {
+      margin: 0;
+
+      color: #94a3b8;
+
+      font-size: 11px;
+
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+
+      font-size: 11px;
+    }
+
+    .footer-links a {
+      color: #6366f1;
+
+      text-decoration: none;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media only screen and (max-width: 600px) {
+
+      .email-wrapper {
+        padding: 20px 10px;
+      }
+
+      .hero {
+        padding: 35px 25px 45px;
+      }
+
+      .content {
+        padding: 30px 22px;
+      }
+
+      .footer {
+        padding: 0 22px 30px;
+      }
+
+      .hero-title {
+        font-size: 25px;
+      }
+
+      .hero-subtitle {
+        font-size: 13px;
+      }
+
+      .icon-wrapper {
+        width: 74px;
+        height: 74px;
+      }
+
+      .application-icon {
+        width: 60px;
+        height: 60px;
+
+        font-size: 26px;
+
+        line-height: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="email-wrapper">
+
+    <table
+      role="presentation"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+    >
+      <tr>
+        <td align="center">
+
+          <table
+            role="presentation"
+            class="email-container"
+            width="620"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+          >
+
+            <!-- =========================
+                 HERO
+            ========================== -->
+
+            <tr>
+              <td class="hero">
+
+                <div class="icon-wrapper">
+
+                  <div class="application-icon">
+                    📄
+                  </div>
+
+                </div>
+
+                <h1 class="hero-title">
+                  Application Update
+                </h1>
+
+                <p class="hero-subtitle">
+                  An update regarding your application
+                  to HealthStream System.
+                </p>
+
+              </td>
+            </tr>
+
+
+            <!-- =========================
+                 CONTENT
+            ========================== -->
+
+            <tr>
+              <td class="content">
+
+                <p class="greeting">
+                  Hello Dr. <%= name %> 👋
+                </p>
+
+                <p class="description">
+                  Thank you for taking the time to apply
+                  to <strong>HealthStream System</strong>.
+                  We appreciate your interest in joining
+                  our healthcare team.
+                </p>
+
+
+                <!-- =========================
+                     STATUS
+                ========================== -->
+
+                <div class="status-card">
+
+                  <div class="status-header">
+
+                    <div class="status-icon">
+                      <span>!</span>
+                    </div>
+
+                    <div class="status-content">
+
+                      <p class="status-title">
+                        Application Not Approved
+                      </p>
+
+                      <p class="status-text">
+                        After careful review, we are unable
+                        to approve your application at this
+                        time.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+
+                  <!-- =========================
+                       REASON
+                  ========================== -->
+
+                  <% if (reason) { %>
+
+                    <div class="reason-card">
+
+                      <p class="reason-label">
+                        Review Feedback
+                      </p>
+
+                      <p class="reason-text">
+                        <%= reason %>
+                      </p>
+
+                    </div>
+
+                  <% } %>
+
+                </div>
+
+
+                <!-- =========================
+                     NEXT STEPS
+                ========================== -->
+
+                <div class="next-section">
+
+                  <p class="next-title">
+                    What happens next?
+                  </p>
+
+                  <p class="next-text">
+                    We encourage you to continue developing
+                    your professional experience and to
+                    explore future opportunities with
+                   HealthStream System that may better
+                    match your qualifications.
+                  </p>
+
+                </div>
+
+
+                <!-- =========================
+                     SUPPORT
+                ========================== -->
+
+                <div class="support-section">
+
+                  <p class="support-title">
+                    Have questions about your application?
+                  </p>
+
+                  <p class="support-text">
+                    If you would like more information or
+                    clarification regarding this decision,
+                    our support team may be able to assist you.
+                  </p>
+
+                  <a
+                    href="#"
+                    class="support-button"
+                  >
+                    Contact Support →
+                  </a>
+
+                </div>
+
+
+                <div class="divider"></div>
+
+                <p class="description">
+                  We sincerely appreciate your interest in
+                 HealthStream System and wish you continued
+                  success in your professional journey.
+                </p>
+
+              </td>
+            </tr>
+
+
+            <!-- =========================
+                 FOOTER
+            ========================== -->
+
+            <tr>
+              <td class="footer">
+
+                <p class="footer-brand">
+                HealthStream
+                </p>
+
+                <p class="footer-text">
+                  Secure healthcare management, built for you.
+                </p>
+
+                <p class="footer-text">
+                  &copy; <%= new Date().getFullYear() %>
+                  HealthStream System.
+                  All rights reserved.
+                </p>
+
+                <div class="footer-links">
+
+                  <a href="#">
+                    Privacy Policy
+                  </a>
+
+                  &nbsp;&nbsp;•&nbsp;&nbsp;
+
+                  <a href="#">
+                    Support
+                  </a>
+
+                </div>
+
+              </td>
+            </tr>
+
+          </table>
+
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</body>
+</html>
+

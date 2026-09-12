@@ -1,0 +1,883 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Welcome to HealthStream</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f3f6ff;
+      color: #1f2937;
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+    }
+
+    table {
+      border-spacing: 0;
+    }
+
+    .email-wrapper {
+      width: 100%;
+      padding: 45px 15px;
+
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(99, 102, 241, 0.18),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(236, 72, 153, 0.18),
+          transparent 35%
+        ),
+        #f3f6ff;
+    }
+
+    .email-container {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border-radius: 24px;
+
+      box-shadow:
+        0 25px 70px rgba(45, 55, 72, 0.12),
+        0 8px 25px rgba(99, 102, 241, 0.08);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      padding: 48px 40px 58px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(255, 255, 255, 0.25),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(255, 255, 255, 0.15),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #4f46e5 0%,
+          #6366f1 38%,
+          #ec4899 100%
+        );
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 170px;
+      height: 170px;
+
+      left: -85px;
+      bottom: -85px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 210px;
+      height: 210px;
+
+      right: -105px;
+      top: -105px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    /* =========================
+       LOGO
+    ========================== */
+
+    .logo-wrapper {
+      position: relative;
+      z-index: 2;
+
+      width: 84px;
+      height: 84px;
+
+      margin: 0 auto 22px;
+
+      padding: 7px;
+
+      border-radius: 24px;
+
+      background: rgba(255, 255, 255, 0.18);
+
+      border: 1px solid rgba(255, 255, 255, 0.30);
+
+      box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.13);
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+
+      border-radius: 18px;
+
+      background: #ffffff;
+
+      color: #4f46e5;
+
+      font-size: 32px;
+      font-weight: 800;
+
+      line-height: 70px;
+
+      text-align: center;
+    }
+
+    /* =========================
+       HERO TEXT
+    ========================== */
+
+    .hero-title {
+      position: relative;
+      z-index: 2;
+
+      margin: 0;
+
+      color: #ffffff;
+
+      font-size: 30px;
+      line-height: 1.3;
+
+      font-weight: 800;
+
+      letter-spacing: -0.7px;
+    }
+
+    .hero-subtitle {
+      position: relative;
+      z-index: 2;
+
+      max-width: 450px;
+
+      margin: 14px auto 0;
+
+      color: rgba(255, 255, 255, 0.90);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+    }
+
+    /* =========================
+       CONTENT
+    ========================== */
+
+    .content {
+      padding: 40px;
+    }
+
+    .greeting {
+      margin: 0 0 10px;
+
+      color: #111827;
+
+      font-size: 18px;
+
+      font-weight: 700;
+    }
+
+    .description {
+      margin: 0;
+
+      color: #64748b;
+
+      font-size: 14px;
+
+      line-height: 1.85;
+    }
+
+    /* =========================
+       WELCOME CARD
+    ========================== */
+
+    .welcome-card {
+      position: relative;
+
+      margin: 30px 0;
+
+      padding: 25px;
+
+      overflow: hidden;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(79, 70, 229, 0.07),
+          rgba(236, 72, 153, 0.08)
+        );
+
+      border: 1px solid rgba(99, 102, 241, 0.12);
+    }
+
+    .welcome-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 100px;
+      height: 100px;
+
+      right: -50px;
+      top: -50px;
+
+      border-radius: 50%;
+
+      background: rgba(236, 72, 153, 0.08);
+    }
+
+    .welcome-title {
+      position: relative;
+      z-index: 2;
+
+      margin: 0 0 8px;
+
+      color: #312e81;
+
+      font-size: 16px;
+
+      font-weight: 800;
+    }
+
+    .welcome-text {
+      position: relative;
+      z-index: 2;
+
+      margin: 0;
+
+      color: #64748b;
+
+      font-size: 13px;
+
+      line-height: 1.75;
+    }
+
+    /* =========================
+       FEATURES
+    ========================== */
+
+    .features-title {
+      margin: 0 0 16px;
+
+      color: #1e293b;
+
+      font-size: 15px;
+
+      font-weight: 700;
+    }
+
+    .feature {
+      display: table;
+
+      width: 100%;
+
+      margin-bottom: 14px;
+
+      padding: 15px;
+
+      border-radius: 14px;
+
+      background: #f8fafc;
+
+      border: 1px solid #e2e8f0;
+    }
+
+    .feature:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-icon {
+      display: table-cell;
+
+      width: 45px;
+
+      vertical-align: middle;
+    }
+
+    .feature-icon span {
+      display: inline-block;
+
+      width: 36px;
+      height: 36px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eef2ff,
+          #fce7f3
+        );
+
+      font-size: 18px;
+
+      line-height: 36px;
+
+      text-align: center;
+    }
+
+    .feature-content {
+      display: table-cell;
+
+      vertical-align: middle;
+    }
+
+    .feature-title {
+      margin: 0 0 3px;
+
+      color: #334155;
+
+      font-size: 13px;
+
+      font-weight: 700;
+    }
+
+    .feature-text {
+      margin: 0;
+
+      color: #94a3b8;
+
+      font-size: 11px;
+
+      line-height: 1.5;
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta-section {
+      margin-top: 30px;
+
+      padding: 28px 20px;
+
+      text-align: center;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f5f3ff,
+          #fdf2f8
+        );
+
+      border: 1px solid rgba(99, 102, 241, 0.10);
+    }
+
+    .cta-title {
+      margin: 0 0 8px;
+
+      color: #1e1b4b;
+
+      font-size: 16px;
+
+      font-weight: 800;
+    }
+
+    .cta-text {
+      max-width: 390px;
+
+      margin: 0 auto 20px;
+
+      color: #64748b;
+
+      font-size: 12px;
+
+      line-height: 1.7;
+    }
+
+    .cta-button {
+      display: inline-block;
+
+      padding: 13px 28px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #4f46e5,
+          #ec4899
+        );
+
+      color: #ffffff !important;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      text-decoration: none;
+
+      box-shadow:
+        0 9px 22px rgba(99, 102, 241, 0.22);
+    }
+
+    /* =========================
+       SECURITY
+    ========================== */
+
+    .security-box {
+      display: table;
+
+      width: 100%;
+
+      margin-top: 25px;
+
+      padding: 18px;
+
+      border-radius: 14px;
+
+      background: #f0fdf4;
+
+      border: 1px solid #bbf7d0;
+    }
+
+    .security-icon {
+      display: table-cell;
+
+      width: 35px;
+
+      vertical-align: top;
+
+      font-size: 18px;
+    }
+
+    .security-text {
+      display: table-cell;
+
+      vertical-align: top;
+
+      color: #166534;
+
+      font-size: 12px;
+
+      line-height: 1.7;
+    }
+
+    /* =========================
+       DIVIDER
+    ========================== */
+
+    .divider {
+      height: 1px;
+
+      margin: 32px 0 24px;
+
+      background: #e5e7eb;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer {
+      padding: 0 40px 35px;
+
+      text-align: center;
+    }
+
+    .footer-brand {
+      margin: 0 0 8px;
+
+      color: #4f46e5;
+
+      font-size: 14px;
+
+      font-weight: 800;
+    }
+
+    .footer-text {
+      margin: 0;
+
+      color: #94a3b8;
+
+      font-size: 11px;
+
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+
+      font-size: 11px;
+    }
+
+    .footer-links a {
+      color: #6366f1;
+
+      text-decoration: none;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media only screen and (max-width: 600px) {
+
+      .email-wrapper {
+        padding: 20px 10px;
+      }
+
+      .hero {
+        padding: 38px 25px 48px;
+      }
+
+      .content {
+        padding: 30px 22px;
+      }
+
+      .footer {
+        padding: 0 22px 30px;
+      }
+
+      .hero-title {
+        font-size: 25px;
+      }
+
+      .hero-subtitle {
+        font-size: 13px;
+      }
+
+      .logo-wrapper {
+        width: 76px;
+        height: 76px;
+      }
+
+      .logo {
+        width: 62px;
+        height: 62px;
+
+        font-size: 28px;
+
+        line-height: 62px;
+      }
+
+      .feature {
+        padding: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="email-wrapper">
+
+    <table
+      role="presentation"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+    >
+      <tr>
+        <td align="center">
+
+          <table
+            role="presentation"
+            class="email-container"
+            width="620"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+          >
+
+            <!-- =========================
+                 HERO
+            ========================== -->
+
+            <tr>
+              <td class="hero">
+
+                <div class="logo-wrapper">
+                  <div class="logo">
+                    ✦
+                  </div>
+                </div>
+
+                <h1 class="hero-title">
+                  Welcome to HealthStream!
+                </h1>
+
+                <p class="hero-subtitle">
+                  We're excited to have you with us.
+                  Your healthcare journey just became
+                  a little easier.
+                </p>
+
+              </td>
+            </tr>
+
+
+            <!-- =========================
+                 CONTENT
+            ========================== -->
+
+            <tr>
+              <td class="content">
+
+                <p class="greeting">
+                  Hello <%= name %> 👋
+                </p>
+
+                <p class="description">
+                  Thank you for joining
+                  <strong>HealthStream</strong>.
+                  Your account has been created successfully,
+                  and you're now ready to access our healthcare
+                  services from one convenient place.
+                </p>
+
+
+                <!-- =========================
+                     WELCOME CARD
+                ========================== -->
+
+                <div class="welcome-card">
+
+                  <p class="welcome-title">
+                    🎉 You're officially part of HealthStream System
+                  </p>
+
+                  <p class="welcome-text">
+                    We've designed HealthStream System to make
+                    managing your healthcare simpler, more convenient,
+                    and more accessible.
+                  </p>
+
+                </div>
+
+
+                <!-- =========================
+                     FEATURES
+                ========================== -->
+
+                <p class="features-title">
+                  Everything you need, in one place
+                </p>
+
+
+                <div class="feature">
+
+                  <div class="feature-icon">
+                    <span>📅</span>
+                  </div>
+
+                  <div class="feature-content">
+
+                    <p class="feature-title">
+                      Book Appointments
+                    </p>
+
+                    <p class="feature-text">
+                      Schedule and manage your healthcare
+                      appointments with ease.
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                  <div class="feature-icon">
+                    <span>🩺</span>
+                  </div>
+
+                  <div class="feature-content">
+
+                    <p class="feature-title">
+                      Consult with Doctors
+                    </p>
+
+                    <p class="feature-text">
+                      Connect with healthcare professionals
+                      when you need them.
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                  <div class="feature-icon">
+                    <span>📋</span>
+                  </div>
+
+                  <div class="feature-content">
+
+                    <p class="feature-title">
+                      Manage Health Records
+                    </p>
+
+                    <p class="feature-text">
+                      Keep your important healthcare information
+                      organized in one secure place.
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+                <!-- =========================
+                     CTA
+                ========================== -->
+
+                <div class="cta-section">
+
+                  <p class="cta-title">
+                    Ready to get started?
+                  </p>
+
+                  <p class="cta-text">
+                    Sign in to your account and explore
+                    everything HealthStream System has
+                    to offer.
+                  </p>
+
+                  <a
+                    href="#"
+                    class="cta-button"
+                  >
+                    Go to Your Account →
+                  </a>
+
+                </div>
+
+
+                <!-- =========================
+                     SECURITY
+                ========================== -->
+
+                <div class="security-box">
+
+                  <div class="security-icon">
+                    🛡️
+                  </div>
+
+                  <div class="security-text">
+                    <strong>Your privacy matters.</strong>
+                    We take the security of your personal
+                    and healthcare information seriously.
+                    Never share your login credentials with
+                    anyone.
+                  </div>
+
+                </div>
+
+
+                <div class="divider"></div>
+
+                <p class="description">
+                  If you did not create this account,
+                  please contact our support team so we
+                  can help secure your information.
+                </p>
+
+              </td>
+            </tr>
+
+
+            <!-- =========================
+                 FOOTER
+            ========================== -->
+
+            <tr>
+              <td class="footer">
+
+                <p class="footer-brand">
+                  HealthStream System
+                </p>
+
+                <p class="footer-text">
+                  Secure healthcare management, built for you.
+                </p>
+
+                <p class="footer-text">
+                  &copy; <%= new Date().getFullYear() %>
+                  HealthStream System.
+                  All rights reserved.
+                </p>
+
+                <div class="footer-links">
+
+                  <a href="#">
+                    Privacy Policy
+                  </a>
+
+                  &nbsp;&nbsp;•&nbsp;&nbsp;
+
+                  <a href="#">
+                    Support
+                  </a>
+
+                </div>
+
+              </td>
+            </tr>
+
+          </table>
+
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</body>
+</html>
