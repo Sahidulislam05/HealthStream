@@ -23,6 +23,8 @@
     "@types/date-fns": "^2.5.3",
     "@types/multer": "^2.2.0",
     "@types/nodemailer": "^8.0.1",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
     "bcryptjs": "^3.0.3",
     "cloudinary": "^2.10.0",
     "cookie-parser": "^1.4.7",
@@ -40,6 +42,8 @@
     "pdfkit": "^0.20.1",
     "pg": "^8.22.0",
     "redis": "^6.2.1",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -58,8 +62,11 @@
     "typescript": "^7.0.2"
   },
   "allowScripts": {
-    "esbuild@0.28.1": true,
     "prisma@7.9.1": true,
-    "@prisma/engines@7.9.1": true
+    "@prisma/engines@7.9.1": true,
+    "core-js@2.6.12": true,
+    "nodemon@1.19.4": true,
+    "@scarf/scarf@1.4.0": true,
+    "esbuild@0.28.1": true
   }
 }
